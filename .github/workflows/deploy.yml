@@ -1,36 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My Static Website!</title>
-</head>
-<body>
-    <header>
-        <h1>🚀 Welcome to My Static Website!</h1>
-    </header>
-    <main>
-        <section>
-            <p>
-                This site is deployed using <strong>Netlify</strong> and <strong>GitHub</strong> ✨
-            </p>
-            <p>
-                Originally, this project was intended to use <strong>AWS S3</strong>, <strong>GitHub Actions</strong>, and <strong>Cloudflare</strong> for hosting and auto-deployment. However, due to domain limitations and cost constraints, I chose to deploy the site using <strong>Netlify</strong>, which offers:
-            </p>
-            <ul>
-                <li><strong>Free global CDN</strong> (faster content delivery worldwide)</li>
-                <li><strong>Automatic HTTPS/SSL</strong></li>
-                <li><strong>Simple GitHub integration for CI/CD</strong></li>
-                <li><strong>Built-in versioning and cache control</strong></li>
-                <li><strong>No need for separate domain or Cloudflare configuration</strong></li>
-            </ul>
-            <p>
-                This approach made deployment easier, more cost-effective, and beginner-friendly, while still meeting all core objectives of the project.
-            </p>
-            <p>
-                Check it out here: <a href="https://pavithra-static-app.netlify.app" target="_blank">https://pavithra-static-app.netlify.app</a>
-            </p>
-        </section>
-    </main>
-</body>
-</html>
+name: Deploy to S3
+
+on:
+  push:
+    branches:
+      - main  # This will trigger the action when you push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # This will run on the latest Ubuntu machine
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Checks out your code from the repository
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1  # Change this to your AWS region if needed
+
+      - name: Sync to S3
+        run: |
+          aws s3 sync . s3://pavithra-static-site/ --exclude ".git/*" --delete
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
