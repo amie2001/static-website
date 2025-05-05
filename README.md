@@ -77,7 +77,7 @@ We began by designing a simple static HTML site using basic HTML and CSS to demo
 
 ### 7. **Explanation Video**
 
-* \[Insert the link to your project explanation video here]
+* (https://drive.google.com/file/d/1mrRn3U1aFUM10rU2ypewy0xRhuzzZ20H/view?usp=sharing)
 
 ---
 
