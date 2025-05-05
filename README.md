@@ -18,6 +18,8 @@ This project automates the deployment of a static website through the following 
 * **Netlify**: Provides seamless integration for deploying the website with automatic HTTPS support and continuous deployment.
 * **Cloudflare**: Initially considered for DNS management and HTTPS, but ultimately not required for the free deployment flow with **Netlify**.
 
+---
+
 ## Steps We Followed
 
 ### 1. **Create a Static HTML Site**
@@ -33,11 +35,19 @@ We began by designing a simple static HTML site using basic HTML and CSS to demo
 * We created a GitHub repository to store the website files.
 * We configured a GitHub Actions workflow that syncs the changes made to the repository with **Netlify** (via the API), so whenever a commit is pushed to the `main` branch, the website is updated automatically.
 
+
+![image](https://github.com/user-attachments/assets/27303353-d6b5-4748-a111-1c695f1482a5)
+
+
 ### 3. **Deployment to Netlify**
 
 * We connected the GitHub repository to **Netlify** for hosting the static files.
 * **Netlify** provides automatic HTTPS via SSL certificates, ensuring that the website has a secure connection.
 * After connecting the repository to Netlify, the website was live on a custom subdomain provided by Netlify (`<your-site-name>.netlify.app`).
+
+
+![image](https://github.com/user-attachments/assets/ac097032-4df3-49a8-9d07-a2359b82e70d)
+
 
 ### 4. **Choosing Netlify Over AWS S3 + Cloudflare**
 
@@ -49,22 +59,24 @@ We began by designing a simple static HTML site using basic HTML and CSS to demo
   * Free tier for personal projects.
   * Easy custom domain management.
 
-### 5. **Custom Domain**
-
-* Although Cloudflare was initially considered for managing DNS and connecting a custom domain, it was not required with **Netlify**. Netlify handles the custom domain and SSL certificate seamlessly, simplifying the setup.
-
-### 6. **Final Website URL**
+### 5. **Final Website URL**
 
 * The final static website is deployed on **Netlify** with the URL:
   [https://pavithra-static-app.netlify.app](https://pavithra-static-app.netlify.app).
 
-### 7. **Live Demo**
+![image](https://github.com/user-attachments/assets/071b85df-b8b3-4188-a6e3-b402eee5ea9c)
+
+
+### 6. **Live Demo**
 
 * You can visit the live demo of the website here:
   [https://pavithra-static-app.netlify.app](https://pavithra-static-app.netlify.app).
-  
-### 8. **Explanation Video**
 
+### 7. **Explanation Video**
+
+* \[Insert the link to your project explanation video here]
+
+---
 
 ## Key Features
 
@@ -72,12 +84,16 @@ We began by designing a simple static HTML site using basic HTML and CSS to demo
 * **Secure Connection (HTTPS)**: The website is served securely over HTTPS with SSL certificates automatically provided by **Netlify**.
 * **Continuous Integration and Continuous Deployment (CI/CD)**: No manual intervention is required. Once a commit is made to GitHub, the website updates automatically.
 
+---
+
 ## Deliverables
 
 * **GitHub Actions CI/CD Workflow**: Automates the deployment process.
 * **Cloudflare + S3 Integration Steps**: Although **Cloudflare** and **S3** were initially planned for DNS and hosting, **Netlify** was used instead for easier setup and features.
 * **Live Website Link with HTTPS**: Available at [https://pavithra-static-app.netlify.app](https://pavithra-static-app.netlify.app).
 * **Screenshot & Deployment Report**: Screenshots of the live website and deployment steps are included as part of the documentation.
+
+---
 
 ## Conclusion
 
