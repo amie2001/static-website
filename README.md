@@ -30,6 +30,9 @@ We began by designing a simple static HTML site using basic HTML and CSS to demo
 * `style.css`
 * `README.md`
 
+![image](https://github.com/user-attachments/assets/6b757979-4741-4803-a030-289cd277d62f)
+
+
 ### 2. **Set Up GitHub Actions for CI/CD**
 
 * We created a GitHub repository to store the website files.
